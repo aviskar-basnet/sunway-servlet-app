@@ -34,6 +34,9 @@ public class LoginServlet extends HttpServlet {
 		if (request.getParameter("invalid") != null) {
 			out.println("<label style=\"color:red;\">Invalid username & password. Please try again!!</label>");
 			out.println("<br /><br />");
+		} else if (request.getParameter("logout") != null) {
+			out.println("<label style=\"color:green;\">You are logged out successfully!!</label>");
+			out.println("<br /><br />");
 		}
 
 		out.println("<form action=\"\" method=\"post\">		");

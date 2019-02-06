@@ -36,7 +36,10 @@ public class StudentServlet extends HttpServlet {
 		out.println("<body>");
 
 		HttpSession httpSession = request.getSession();
-		out.println("<h2>Hi, " + ((User) httpSession.getAttribute("user")).getUsername() + "</h2>");
+		out.println("<h2>");
+		out.println("Hi, " + ((User) httpSession.getAttribute("user")).getUsername() + " ");
+		out.println("<a href=\"logout\" title=\"Logout\">logout</a>");
+		out.println("</h2>");
 
 		out.println("<h2>Student Form</h2>");
 		out.println("<form action=\"\" method=\"post\">");
