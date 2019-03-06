@@ -17,16 +17,15 @@ public class LoggedInCheckFilter extends HttpFilter {
 
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		HttpSession httpSession = request.getSession(false);
 		String requestUri = request.getRequestURI();
 		if (requestUri != null) {
 			if (requestUri.startsWith(request.getContextPath() + "/login")) {
-				HttpSession httpSession = request.getSession(false);
 				if(httpSession != null && httpSession.getAttribute("user") != null) {
 					response.sendRedirect(request.getContextPath() + "/student");
 					return;
 				}
 			} else {
-				HttpSession httpSession = request.getSession(false);
 				if(httpSession == null || httpSession.getAttribute("user") == null) {
 					response.sendRedirect(request.getContextPath() + "/login");
 					return;
